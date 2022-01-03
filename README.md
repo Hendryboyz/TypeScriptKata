@@ -9,4 +9,7 @@
 
 ### Reference
 
-https://github.com/stemmlerjs/simple-typescript-starter
+- [Starter Project](https://github.com/stemmlerjs/simple-typescript-starter)
+- [Kata Dojo](https://codingdojo.org/kata/)
+- [Jest Document](https://jestjs.io/docs/using-matchers)
+- [TDD Tutorials](https://khalilstemmler.com/articles/test-driven-development/introduction-to-tdd/#Getting-started)
