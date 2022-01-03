@@ -12,6 +12,11 @@
     "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}",
     "build": "rmraf ./build && tsc"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format && npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hendryboyz/TypeScriptKata.git"
@@ -32,6 +37,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
     "nodemon": "^2.0.15",
     "onchange": "^7.1.0",
     "prettier": "^2.5.1",
