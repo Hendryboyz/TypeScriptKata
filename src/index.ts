@@ -1,1 +1,5 @@
-console.log('Hello World!');
+export class PalindromeChecker {
+  isPalindrome(str: string): boolean {
+    return true;
+  }
+}
