@@ -1,0 +1,28 @@
+{
+  "name": "typescriptkata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon",
+    "compile": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hendryboyz/TypeScriptKata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hendryboyz/TypeScriptKata/issues"
+  },
+  "homepage": "https://github.com/Hendryboyz/TypeScriptKata#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.6",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
