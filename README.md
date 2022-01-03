@@ -6,3 +6,7 @@
 - [Use ESLint with TypeScript](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/)
 - [Format Code with Prettier](https://khalilstemmler.com/blogs/tooling/prettier/)
 - [Enforce Husky pre-commit hooks](https://khalilstemmler.com/blogs/tooling/enforcing-husky-precommit-hooks/)
+
+### Reference
+
+https://github.com/stemmlerjs/simple-typescript-starter
