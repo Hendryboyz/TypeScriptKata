@@ -11,7 +11,8 @@ export class FizzBuzz {
       return ResponseConstants.FIZZ;
     } else if (num % 5 === 0) {
       return ResponseConstants.BUZZ;
+    } else {
+      return num.toString();
     }
-    return '';
   }
 }

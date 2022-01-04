@@ -21,7 +21,7 @@ describe('FizzBuzz', () => {
   );
   const divisableBy5: number[] = [5, 10, 20];
   test.each(divisableBy5)(
-    'Given %p is divisable by 5, then Return Buzz',
+    'Given %p is divisable by 5, then return Buzz',
     (num: number) => {
       const result: string = fizzBuzz.response(num);
       expect(result).toMatch(ResponseConstants.BUZZ);
@@ -39,6 +39,15 @@ describe('FizzBuzz', () => {
     (num: number) => {
       const result: string = fizzBuzz.response(num);
       expect(result).toBe(ResponseConstants.FIZZ + ResponseConstants.BUZZ);
+    }
+  );
+
+  const normalNumber = [1, 2, 7, 11, 13, 17];
+  test.each(normalNumber)(
+    'Given normal number %p, then return string number',
+    (num: number) => {
+      const result = fizzBuzz.response(num);
+      expect(result).toBe(num.toString());
     }
   );
 });
