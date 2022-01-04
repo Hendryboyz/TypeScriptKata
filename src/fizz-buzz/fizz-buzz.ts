@@ -5,7 +5,7 @@ export const ResponseConstants = {
 
 export class FizzBuzz {
   response(num: number): string {
-    if (num === 15) {
+    if (num % 3 === 0 && num % 5 === 0) {
       return ResponseConstants.FIZZ + ResponseConstants.BUZZ;
     } else if (num % 3 === 0) {
       return ResponseConstants.FIZZ;

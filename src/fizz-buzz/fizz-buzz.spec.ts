@@ -32,4 +32,13 @@ describe('FizzBuzz', () => {
     const result: string = fizzBuzz.response(15);
     expect(result).toBe(ResponseConstants.FIZZ + ResponseConstants.BUZZ);
   });
+
+  const fizzBuzzNumber = [15, 30, 45];
+  test.each(fizzBuzzNumber)(
+    'Given number %p is the common multiple of 3 and 5, then return FizzBuzz',
+    (num: number) => {
+      const result: string = fizzBuzz.response(num);
+      expect(result).toBe(ResponseConstants.FIZZ + ResponseConstants.BUZZ);
+    }
+  );
 });
