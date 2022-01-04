@@ -12,7 +12,12 @@ export class FizzBuzz {
     } else if (num % 5 === 0) {
       return ResponseConstants.BUZZ;
     } else {
-      return num.toString();
+      let numString = num.toString();
+      if (numString.includes('3')) {
+        return ResponseConstants.FIZZ;
+      } else {
+        return numString;
+      }
     }
   }
 }

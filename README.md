@@ -1,5 +1,11 @@
 # TypeScriptKata
 
+## Run Test
+
+```bash
+npm run test -- --roots src/<kata-name>
+```
+
 ## How to setup this project
 
 - [Setup a TypeScript + Node.js Project](https://khalilstemmler.com/blogs/typescript/node-starter-project/)

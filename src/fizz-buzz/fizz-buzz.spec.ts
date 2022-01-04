@@ -42,7 +42,7 @@ describe('FizzBuzz', () => {
     }
   );
 
-  const normalNumber = [1, 2, 7, 11, 13, 17];
+  const normalNumber = [1, 2, 7, 11, 17];
   test.each(normalNumber)(
     'Given normal number %p, then return string number',
     (num: number) => {
@@ -50,4 +50,9 @@ describe('FizzBuzz', () => {
       expect(result).toBe(num.toString());
     }
   );
+
+  it('Given a number contain 3 in it, then return Fizz', () => {
+    const result: string = fizzBuzz.response(13);
+    expect(result).toBe(ResponseConstants.FIZZ);
+  });
 });
