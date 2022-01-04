@@ -55,4 +55,9 @@ describe('FizzBuzz', () => {
     const result: string = fizzBuzz.response(13);
     expect(result).toBe(ResponseConstants.FIZZ);
   });
+
+  it('Given a number include 5 in it, then return Buzz', () => {
+    const result: string = fizzBuzz.response(59);
+    expect(result).toBe(ResponseConstants.BUZZ);
+  });
 });

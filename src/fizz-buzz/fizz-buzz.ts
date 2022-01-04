@@ -15,6 +15,8 @@ export class FizzBuzz {
       let numString = num.toString();
       if (numString.includes('3')) {
         return ResponseConstants.FIZZ;
+      } else if (numString.includes('5')) {
+        return ResponseConstants.BUZZ;
       } else {
         return numString;
       }
