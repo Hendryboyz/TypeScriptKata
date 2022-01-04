@@ -13,3 +13,8 @@
 - [Kata Dojo](https://codingdojo.org/kata/)
 - [Jest Document](https://jestjs.io/docs/using-matchers)
 - [TDD Tutorials](https://khalilstemmler.com/articles/test-driven-development/introduction-to-tdd/#Getting-started)
+- [Jest Repetitive Test Cases](https://dev.to/bgord/simplify-repetitive-jest-test-cases-with-test-each-310m)
+
+## Kata Dojo
+
+- [ ] [FizzBuzz](https://codingdojo.org/kata/FizzBuzz/)
