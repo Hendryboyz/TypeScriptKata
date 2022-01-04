@@ -12,14 +12,18 @@ export class FizzBuzz {
     } else if (num % 5 === 0) {
       return ResponseConstants.BUZZ;
     } else {
-      let numString = num.toString();
-      if (numString.includes('3')) {
-        return ResponseConstants.FIZZ;
-      } else if (numString.includes('5')) {
-        return ResponseConstants.BUZZ;
-      } else {
-        return numString;
-      }
+      return this.matchString(num);
+    }
+  }
+
+  private matchString(num: number): string {
+    let numString = num.toString();
+    if (numString.includes('3')) {
+      return ResponseConstants.FIZZ;
+    } else if (numString.includes('5')) {
+      return ResponseConstants.BUZZ;
+    } else {
+      return numString;
     }
   }
 }
