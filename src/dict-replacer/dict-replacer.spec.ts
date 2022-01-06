@@ -26,6 +26,13 @@ describe('Dictionary Replacer', () => {
         name: 'John Doe'
       },
       expectedResult: 'temporary here comes the name John Doe'
+    },
+    {
+      text: '$temp$ here comes the name $name$',
+      dictionary: {
+        temp: 'temporary'
+      },
+      expectedResult: 'temporary here comes the name $name$'
     }
   ];
 

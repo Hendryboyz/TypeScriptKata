@@ -7,7 +7,7 @@ export class DictionaryReplacer {
     for (let i = 0; i < text.length; i++) {
       if (text[i] === SIGN && start) {
         start = false;
-        let pattern: string = text.substring(startIdx + 1, i);
+        let pattern: string = text.substring(startIdx, i + 1);
         result += this.replacePattern(pattern, dictionary);
       } else if (text[i] === SIGN && !start) {
         startIdx = i;
@@ -20,9 +20,10 @@ export class DictionaryReplacer {
   }
 
   private replacePattern(pattern: string, dictionary: any) {
-    if (!(pattern in dictionary)) {
-      return '';
+    const word: string = pattern.slice(1, -1);
+    if (!(word in dictionary)) {
+      return pattern;
     }
-    return dictionary[pattern];
+    return dictionary[word];
   }
 }
