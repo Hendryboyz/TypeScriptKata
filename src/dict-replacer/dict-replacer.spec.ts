@@ -10,4 +10,11 @@ describe('Dictionary Replacer', () => {
     const result: string = dictionaryReplacer.replace('', {});
     expect(result).toMatch('');
   });
+
+  it('Given text "$temp$" and dict, then return substition result', () => {
+    const result: string = dictionaryReplacer.replace('$temp$', {
+      temp: 'temporary'
+    });
+    expect(result).toMatch('temporary');
+  });
 });
