@@ -17,4 +17,23 @@ describe('Dictionary Replacer', () => {
     });
     expect(result).toMatch('temporary');
   });
+
+  const normalCases: any[] = [
+    {
+      text: '$temp$ here comes the name $name$',
+      dictionary: {
+        temp: 'temporary',
+        name: 'John Doe'
+      },
+      expectedResult: 'temporary here comes the name John Doe'
+    }
+  ];
+
+  test.each(normalCases)(
+    'Given pattern and dictionary, then return result: $expectedResult',
+    ({ text, dictionary, expectedResult }) => {
+      const result: string = dictionaryReplacer.replace(text, dictionary);
+      expect(result).toMatch(expectedResult);
+    }
+  );
 });
