@@ -24,4 +24,6 @@ npm run test -- --roots src/<kata-name>
 ## Kata Dojo
 
 - [x] [FizzBuzz](https://codingdojo.org/kata/FizzBuzz/)
-- [ ] [Dictionay Replacer](https://codingdojo.org/kata/DictionaryReplacer/)
+- [x] [Dictionay Replacer](https://codingdojo.org/kata/DictionaryReplacer/)
+  - the basic happy cases are finished
+- [ ] [Birthday Greetings](https://codingdojo.org/kata/birthday-greetings/)
