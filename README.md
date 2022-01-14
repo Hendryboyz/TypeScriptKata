@@ -4,6 +4,7 @@
 
 ```bash
 npm run test -- --roots src/<kata-name>
+npm run test -- --roots src/birthday-greeting
 ```
 
 ## How to setup this project
