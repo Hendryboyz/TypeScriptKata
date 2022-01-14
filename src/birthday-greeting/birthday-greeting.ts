@@ -1,10 +1,10 @@
-import { Friend, FriendsRepository } from './friends-repostiory';
+import { Friend, IFriendsRepository } from './friends-repostiory';
 
 export class BirthdayGreeting {
-  constructor(private friendRepository: FriendsRepository) {}
+  constructor(private friendRepository: IFriendsRepository) {}
 
   send() {
-    this.friendRepository.getAll();
+    console.log(this.friendRepository.getAll());
   }
 
   generate(friend: Friend): string {

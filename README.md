@@ -1,10 +1,15 @@
 # TypeScriptKata
 
+## Mocking Framework
+
+```bash
+npm install --save ttypescript jest-ts-auto-mock ts-auto-mock
+```
+
 ## Run Test
 
 ```bash
 npm run test -- --roots src/<kata-name>
-npm run test -- --roots src/birthday-greeting
 ```
 
 ## How to setup this project

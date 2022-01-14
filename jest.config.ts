@@ -44,7 +44,11 @@ export default {
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    'ts-jest': {
+      compiler: 'ttypescript'
+    }
+  },
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
   // An array of directory names to be searched recursively up from the requiring module's location
@@ -82,7 +86,7 @@ export default {
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: ['<rootDir>config.ts'],
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -116,7 +120,7 @@ export default {
   // timers: "real",
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.ts?$': 'ts-jest'
+    '^.+\\.(ts|tsx)?$': 'ts-jest'
   }
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

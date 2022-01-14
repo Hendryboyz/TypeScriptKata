@@ -1,13 +1,12 @@
 import { BirthdayGreeting } from './birthday-greeting';
-import { FriendsRepository } from './friends-repostiory';
+import { IFriendsRepository } from './friends-repostiory';
+import { createMock } from 'ts-auto-mock';
 
 describe('Birthday Greeting', () => {
-  jest.mock('./friends-repostiory');
-
   let greeting: BirthdayGreeting;
-  let friendsRepository: FriendsRepository;
+  let friendsRepository: IFriendsRepository;
   beforeEach(() => {
-    friendsRepository = new FriendsRepository();
+    friendsRepository = createMock<IFriendsRepository>();
     greeting = new BirthdayGreeting(friendsRepository);
   });
 
