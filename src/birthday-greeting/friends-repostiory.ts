@@ -1,5 +1,5 @@
-export type Friend = { firstName: string; birthday: string; email: string };
+export type Friend = { firstName: string; birthday: Date; email: string };
 
 export interface IFriendsRepository {
-  getAll(): Friend[];
+  getAll(userId: string): Friend[];
 }
