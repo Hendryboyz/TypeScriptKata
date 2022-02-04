@@ -66,4 +66,34 @@ describe('Birthday Greeting', () => {
       );
     });
   });
+
+  describe('Given user id', () => {
+    const mockDates = [
+      '2021-01-01',
+      '2020-02-01',
+      '2020-03-01',
+      '2020-04-01',
+      '2020-05-01',
+      '2020-06-01',
+      '2020-07-01',
+      '2020-08-01',
+      '2020-09-01',
+      '2020-10-01',
+      '2020-11-01',
+      '2020-12-01'
+    ];
+    it.each(mockDates)(
+      "when today(%s) is a friend's birthday",
+      (today: string) => {
+        // arrange
+        const userId = 'henry.chou';
+        jest.useFakeTimers('modern').setSystemTime(new Date(today).getTime());
+
+        // action
+        service.congratulate(userId);
+
+        // assert
+      }
+    );
+  });
 });
