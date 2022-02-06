@@ -14,7 +14,7 @@ describe('Birthday Greeting', () => {
     service = new BirthdayService(friendsRepository, notificationService);
   });
 
-  describe('Given user id when has some friends', () => {
+  describe('Given user with 2 friends', () => {
     const genreateFriendList = (): Friend[] => {
       let friends: Friend[] = [];
       friends.push({
@@ -30,12 +30,9 @@ describe('Birthday Greeting', () => {
       return friends;
     };
 
-    it('then retrieve friends from repository', () => {
+    it("when check if today is some friends' birthday then retrieve friends from repository", () => {
       // arrange
       const userId = 'henry.chou';
-      jest
-        .spyOn(friendsRepository, 'getAll')
-        .mockReturnValue(genreateFriendList());
 
       // action
       service.congratulate(userId);
@@ -44,7 +41,7 @@ describe('Birthday Greeting', () => {
       expect(friendsRepository.getAll).toBeCalledWith(userId);
     });
 
-    it('then send felicitation meesage to noitify service', () => {
+    it("when today is some friends' birthday then felicitate via noitify service", () => {
       // arrange
       const userId = 'henry.chou';
       jest.useFakeTimers('modern').setSystemTime(new Date('2020-04-05'));
@@ -68,7 +65,7 @@ describe('Birthday Greeting', () => {
     });
   });
 
-  describe('Given user id', () => {
+  describe('Given user with friends and their birthday in each month', () => {
     const mockDates = [
       {name: 'Rehaan', day: '2021-01-01'},
       {name: 'Ansh', day: '2020-02-01'},
