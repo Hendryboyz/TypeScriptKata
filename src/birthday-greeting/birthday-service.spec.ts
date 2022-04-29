@@ -14,19 +14,18 @@ describe('Birthday Greeting', () => {
     service = new BirthdayService(friendsRepository, notificationService);
   });
 
+  const createFriend = (name: string, birthday: Date) => ({
+    firstName: name,
+    birthday: birthday,
+    email: `${name.toLowerCase()}@example.com`
+  });
+
   describe('Given user with 2 friends', () => {
     const genreateFriendList = (): Friend[] => {
-      let friends: Friend[] = [];
-      friends.push({
-        firstName: 'Nick',
-        birthday: new Date('1999-04-05'),
-        email: 'nick@example.com'
-      });
-      friends.push({
-        firstName: 'Linda',
-        birthday: new Date('1999-04-05'),
-        email: 'linda@example.com'
-      });
+      let friends: Friend[] = [
+        createFriend('Nick', new Date('1999-04-05')),
+        createFriend('Linda', new Date('1989-04-05'))
+      ];
       return friends;
     };
 
@@ -67,37 +66,35 @@ describe('Birthday Greeting', () => {
 
   describe('Given user with friends and their birthday in each month', () => {
     const mockDates = [
-      {name: 'Rehaan', day: '2021-01-01'},
-      {name: 'Ansh', day: '2020-02-01'},
-      {name: 'Karam', day: '2020-03-01'},
-      {name: 'Beatriz', day: '2020-04-01'},
-      {name: 'Joely', day: '2020-05-01'},
-      {name: 'Isaac', day: '2020-06-01'},
-      {name: 'Stefania', day: '2020-07-01'},
-      {name: 'Allan', day: '2020-08-01'},
-      {name: 'Bronwyn', day: '2020-09-01'},
-      {name: 'Glenn', day: '2020-10-01'},
-      {name: 'Niall', day: '2020-11-01'},
-      {name: 'Taybah', day: '2020-12-01'},
+      { name: 'Rehaan', day: '2021-01-01' },
+      { name: 'Ansh', day: '2020-02-01' },
+      { name: 'Karam', day: '2020-03-01' },
+      { name: 'Beatriz', day: '2020-04-01' },
+      { name: 'Joely', day: '2020-05-01' },
+      { name: 'Isaac', day: '2020-06-01' },
+      { name: 'Stefania', day: '2020-07-01' },
+      { name: 'Allan', day: '2020-08-01' },
+      { name: 'Bronwyn', day: '2020-09-01' },
+      { name: 'Glenn', day: '2020-10-01' },
+      { name: 'Niall', day: '2020-11-01' },
+      { name: 'Taybah', day: '2020-12-01' }
     ];
     const mockFriendList = (): Friend[] => {
       let friends: Friend[] = [];
       mockDates.forEach((eachFriend) => {
-        friends.push({
-          firstName: eachFriend.name,
-          birthday: new Date(eachFriend.day),
-          email: `${eachFriend.name.toLowerCase()}@example.com`,
-        });
+        friends.push(createFriend(eachFriend.name, new Date(eachFriend.day)));
       });
       return friends;
-    }
+    };
     it.each(mockDates)(
       "when today($day) is $name's birthday, then congratulate $name",
-      ({name, day}) => {
+      ({ name, day }) => {
         // arrange
         const userId = 'henry.chou';
         jest.useFakeTimers('modern').setSystemTime(new Date(day));
-        jest.spyOn(friendsRepository, 'getAll').mockReturnValue(mockFriendList());
+        jest
+          .spyOn(friendsRepository, 'getAll')
+          .mockReturnValue(mockFriendList());
 
         // action
         service.congratulate(userId);
@@ -112,5 +109,3 @@ describe('Birthday Greeting', () => {
     );
   });
 });
-
-
