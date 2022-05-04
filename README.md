@@ -9,7 +9,7 @@ npm install --save ttypescript jest-ts-auto-mock ts-auto-mock
 ## Run Test
 
 ```bash
-npm run test -- --roots src/<kata-name>
+npm run test -- --watch --roots src/<kata-name>
 ```
 
 ## How to setup this project
@@ -32,4 +32,5 @@ npm run test -- --roots src/<kata-name>
 - [x] [FizzBuzz](https://codingdojo.org/kata/FizzBuzz/)
 - [x] [Dictionay Replacer](https://codingdojo.org/kata/DictionaryReplacer/)
   - the basic happy cases are finished
-- [ ] [Birthday Greetings](https://codingdojo.org/kata/birthday-greetings/)
+- [x] [Birthday Greetings](https://codingdojo.org/kata/birthday-greetings/)
+- [ ] [Wallet](https://codingdojo.org/kata/Wallet/)
