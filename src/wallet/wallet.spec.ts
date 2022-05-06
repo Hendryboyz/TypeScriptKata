@@ -12,6 +12,17 @@ describe('Wallet', () => {
     rateProvider = createMock<RateProvider>();
   });
 
+  it('Given put the stock into wallet When amount is negative Then throw exception', () => {
+    // arrange
+    const stock: Stock = new Stock(-1, StockType.PETROLEUM);
+
+    // action && assert
+    expect(() => wallet.add(stock)).toThrowError(RangeError);
+    expect(() => wallet.add(stock)).toThrowError(
+      /Negative amount: \-[1-9]\d* is not allowed./
+    );
+  });
+
   describe('Given computing the value in EUR', () => {
     describe('When a wallet with a stock', () => {
       beforeEach(() => {

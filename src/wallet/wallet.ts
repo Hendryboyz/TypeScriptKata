@@ -10,6 +10,9 @@ export class Wallet {
   }
 
   add(stock: Stock) {
+    if (stock.amount < 0) {
+      throw new RangeError(`Negative amount: ${stock.amount} is not allowed.`);
+    }
     this.stocks.push(stock);
   }
 
