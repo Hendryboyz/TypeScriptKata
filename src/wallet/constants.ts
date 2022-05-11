@@ -1,5 +1,9 @@
 enum StockType {
-  PETROLEUM
+  PETROLEUM,
+  BITCOIN,
+  DOLLAR,
+  ETF,
+  EURO
 }
 
 enum Currency {

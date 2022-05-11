@@ -4,10 +4,14 @@ import { Stock } from './stock';
 import { Value } from './value';
 
 export class Wallet {
-  add(stock: Stock) {}
+  stocks: Stock[] = [];
+
+  add(stock: Stock) {
+    this.stocks.push(stock);
+  }
 
   value(currency: Currency, rateProvider: RateProvider): Value {
-    rateProvider.rate(StockType.PETROLEUM, Currency.EUR);
+    rateProvider.rate(this.stocks[0].type, Currency.EUR);
     return new Value();
   }
 }
