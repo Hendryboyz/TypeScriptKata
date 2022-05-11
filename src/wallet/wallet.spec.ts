@@ -1,102 +1,24 @@
 import { Wallet } from './wallet';
-import { StockType, Stock } from './stock';
-import RateProvider from './rateprovider';
-import { Currency } from './currency';
+import { RateProvider } from './rate-provider';
+import { Currency, StockType } from './constants';
+import { Stock } from './stock';
+import { Value } from './value';
 import { createMock } from 'ts-auto-mock';
 
 describe('Wallet', () => {
-  let wallet: Wallet;
-  let rateProvider: RateProvider;
-  beforeEach(() => {
-    wallet = new Wallet();
-    rateProvider = createMock<RateProvider>();
-  });
+  beforeEach(() => {});
 
-  it('Given put the stock into wallet When amount is negative Then throw exception', () => {
+  it('Given users selling the stocks When wallet contains a stock Then check method invoke', () => {
     // arrange
-    const stock: Stock = new Stock(-1, StockType.PETROLEUM);
+    const wallet: Wallet = new Wallet();
+    const stock1: Stock = new Stock(5, StockType.PETROLEUM);
+    const rateProvider: RateProvider = createMock<RateProvider>();
 
-    // action && assert
-    expect(() => wallet.add(stock)).toThrowError(RangeError);
-    expect(() => wallet.add(stock)).toThrowError(
-      /Negative amount: \-[1-9]\d* is not allowed./
-    );
-  });
+    // action
+    const value: Value = wallet.value(Currency.EUR, rateProvider);
 
-  describe('Given computing the value in EUR', () => {
-    describe('When a wallet with a stock', () => {
-      beforeEach(() => {
-        // arrange
-        const stock1: Stock = new Stock(5, StockType.PETROLEUM);
-        wallet.add(stock1);
-        jest.spyOn(rateProvider, 'rate').mockReturnValue(1);
-      });
-
-      it('Then rate() should be invoked', () => {
-        // action
-        wallet.computeValue(Currency.EUR, rateProvider);
-
-        // assert
-        expect(rateProvider.rate).toBeCalledWith(
-          StockType.PETROLEUM,
-          Currency.EUR
-        );
-      });
-
-      it('Then value should be 5', () => {
-        // action
-        const value = wallet.computeValue(Currency.EUR, rateProvider);
-
-        // assert
-        expect(value).toBeDefined();
-        expect(value).toBe(5);
-      });
-    });
-
-    describe('When a wallet with 2 types of stocks', () => {
-      describe('When a wallet with a stock', () => {
-        beforeEach(() => {
-          // arrange
-          const stock1: Stock = new Stock(5, StockType.PETROLEUM);
-          wallet.add(stock1);
-          const stock2: Stock = new Stock(3, StockType.BITCOIN);
-          wallet.add(stock2);
-        });
-
-        it('Then rate() should be invoked by stock type', () => {
-          // action
-          wallet.computeValue(Currency.EUR, rateProvider);
-
-          // assert
-          expect(rateProvider.rate).toBeCalledWith(
-            StockType.PETROLEUM,
-            Currency.EUR
-          );
-          expect(rateProvider.rate).toBeCalledWith(
-            StockType.BITCOIN,
-            Currency.EUR
-          );
-        });
-
-        it('Then value should be the summation of amount x rate', () => {
-          // arrange
-          jest
-            .spyOn(rateProvider, 'rate')
-            .mockImplementation((from: StockType, to: Currency) => {
-              if (from === StockType.PETROLEUM) {
-                return 1.2;
-              } else {
-                return 2;
-              }
-            });
-
-          // action
-          const value = wallet.computeValue(Currency.EUR, rateProvider);
-
-          // assert
-          expect(value).toBe(12);
-        });
-      });
-    });
+    // assert
+    expect(value).toBeDefined();
+    expect(rateProvider.rate).toBeCalledWith(StockType.PETROLEUM, Currency.EUR);
   });
 });
