@@ -33,4 +33,5 @@ npm run test -- --watch --roots src/<kata-name>
 - [x] [Dictionay Replacer](https://codingdojo.org/kata/DictionaryReplacer/)
   - the basic happy cases are finished
 - [x] [Birthday Greetings](https://codingdojo.org/kata/birthday-greetings/)
-- [ ] [Wallet](https://codingdojo.org/kata/Wallet/)
+- [x] [Wallet](https://codingdojo.org/kata/Wallet/)
+- [ ] [Bowling](https://codingdojo.org/kata/Bowling/)
