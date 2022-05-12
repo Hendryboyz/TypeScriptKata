@@ -7,6 +7,9 @@ export class Wallet {
   stocks: Stock[] = [];
 
   add(stock: Stock) {
+    if (stock.amount <= 0) {
+      throw new RangeError(`Stock amount: ${stock.amount} must large than 0.`);
+    }
     this.stocks.push(stock);
   }
 

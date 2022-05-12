@@ -98,4 +98,28 @@ describe('Wallet', () => {
       expect(value.amount).toBe(68.4);
     });
   });
+
+  describe('Given users buying new stock', () => {
+    it('When the stock amount is zero/negative Then throw Exception', () => {
+      // arrange
+      const wallet: Wallet = new Wallet();
+
+      // action and assert
+      expect(() => wallet.add(new Stock(0, StockType.BITCOIN))).toThrowError(
+        RangeError
+      );
+      expect(() => wallet.add(new Stock(-1, StockType.BITCOIN))).toThrowError(
+        RangeError
+      );
+    });
+    it('When the stock amount is zero/negative Then throw Exception', () => {
+      // arrange
+      const wallet: Wallet = new Wallet();
+
+      // action and assert
+      expect(() => wallet.add(new Stock(0, StockType.BITCOIN))).toThrowError(
+        /Stock amount: (-[1-9]?\d+|0) must large than 0./
+      );
+    });
+  });
 });
