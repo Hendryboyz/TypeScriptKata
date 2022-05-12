@@ -11,7 +11,11 @@ export class Wallet {
   }
 
   value(currency: Currency, rateProvider: RateProvider): Value {
-    rateProvider.rate(this.stocks[0].type, Currency.EUR);
-    return new Value(250, currency);
+    const amount: number = this.stocks.reduce<number>((sum, eachStock) => {
+      return (
+        sum + eachStock.amount * rateProvider.rate(eachStock.type, currency)
+      );
+    }, 0);
+    return new Value(amount, currency);
   }
 }
