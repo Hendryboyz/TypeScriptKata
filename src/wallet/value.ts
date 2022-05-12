@@ -1,3 +1,5 @@
+import { Currency } from './constants';
+
 export class Value {
-  constructor() {}
+  constructor(public amount: number, public currency: Currency) {}
 }

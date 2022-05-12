@@ -51,5 +51,20 @@ describe('Wallet', () => {
         expect(rateProvider.rate).toBeCalledWith(stockType, Currency.EUR);
       }
     );
+
+    it('When wallet contains 1 type of stocks Then return value', () => {
+      // arrange
+      const wallet: Wallet = new Wallet();
+      const stock1: Stock = new Stock(5, StockType.PETROLEUM);
+      wallet.add(stock1);
+      jest.spyOn(rateProvider, 'rate').mockReturnValue(50);
+
+      // action
+      const value: Value = wallet.value(Currency.EUR, rateProvider);
+
+      // assert
+      expect(value.currency).toBe(Currency.EUR);
+      expect(value.amount).toBe(250);
+    });
   });
 });

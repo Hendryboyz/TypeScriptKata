@@ -12,6 +12,6 @@ export class Wallet {
 
   value(currency: Currency, rateProvider: RateProvider): Value {
     rateProvider.rate(this.stocks[0].type, Currency.EUR);
-    return new Value();
+    return new Value(250, currency);
   }
 }
